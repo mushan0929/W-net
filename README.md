@@ -1,51 +1,4 @@
-## Unet：U-Net: Convolutional Networks for Biomedical Image Segmentation目标检测模型在Pytorch当中的实现
----
 
-### 目录
-1. [仓库更新 Top News](#仓库更新)
-2. [相关仓库 Related code](#相关仓库)
-3. [性能情况 Performance](#性能情况)
-4. [所需环境 Environment](#所需环境)
-5. [文件下载 Download](#文件下载)
-6. [训练步骤 How2train](#训练步骤)
-7. [预测步骤 How2predict](#预测步骤)
-8. [评估步骤 miou](#评估步骤)
-9. [参考资料 Reference](#Reference)
-
-## Top News
-**`2022-03`**:**进行大幅度更新、支持step、cos学习率下降法、支持adam、sgd优化器选择、支持学习率根据batch_size自适应调整。**  
-BiliBili视频中的原仓库地址为：https://github.com/bubbliiiing/unet-pytorch/tree/bilibili
-
-**`2020-08`**:**创建仓库、支持多backbone、支持数据miou评估、标注数据处理、大量注释等。**  
-
-## 相关仓库
-| 模型 | 路径 |
-| :----- | :----- |
-Unet | https://github.com/bubbliiiing/unet-pytorch  
-PSPnet | https://github.com/bubbliiiing/pspnet-pytorch
-deeplabv3+ | https://github.com/bubbliiiing/deeplabv3-plus-pytorch
-
-### 性能情况
-**unet并不适合VOC此类数据集，其更适合特征少，需要浅层特征的医药数据集之类的。**
-| 训练数据集 | 权值文件名称 | 测试数据集 | 输入图片大小 | mIOU | 
-| :-----: | :-----: | :------: | :------: | :------: | 
-| VOC12+SBD | [unet_vgg_voc.pth](https://github.com/bubbliiiing/unet-pytorch/releases/download/v1.0/unet_vgg_voc.pth) | VOC-Val12 | 512x512| 58.78 | 
-| VOC12+SBD | [unet_resnet_voc.pth](https://github.com/bubbliiiing/unet-pytorch/releases/download/v1.0/unet_resnet_voc.pth) | VOC-Val12 | 512x512| 67.53 | 
-
-### 所需环境
-torch==1.2.0    
-torchvision==0.4.0   
-
-### 文件下载
-训练所需的权值可在百度网盘中下载。    
-链接: https://pan.baidu.com/s/1A22fC5cPRb74gqrpq7O9-A    
-提取码: 6n2c   
-
-VOC拓展数据集的百度网盘如下：   
-链接: https://pan.baidu.com/s/1vkk3lMheUm6IjTXznlg7Ng    
-提取码: 44mk   
-
-### 训练步骤
 #### 一、训练voc数据集
 1、将我提供的voc数据集放入VOCdevkit中（无需运行voc_annotation.py）。  
 2、运行train.py进行训练，默认参数已经对应voc数据集所需要的参数了。  
@@ -154,6 +107,3 @@ img/street.jpg
 2、设置get_miou.py里面的name_classes为需要去区分的类别。  
 3、运行get_miou.py即可获得miou大小。  
 
-## Reference
-https://github.com/ggyyzm/pytorch_segmentation  
-https://github.com/bonlime/keras-deeplab-v3-plus
